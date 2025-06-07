@@ -3,10 +3,10 @@
 
 int main(void)
 {
-    int x = get_int("x: ");
+    long x = get_long("x: ");
 
-    int y = get_int("y: ");
+    long y = get_long("y: ");
 
-    printf("x+y = %i\n", x+y);
+    printf("x+y = %li\n", x+y);
     
 }
