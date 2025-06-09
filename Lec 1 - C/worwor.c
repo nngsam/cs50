@@ -16,6 +16,7 @@ int main (void)
     printf("your dog bark %i times\n", count);
 }
 
+// i told u, it exists
 void worwor(void)
 {
     printf("wor wor\n");
