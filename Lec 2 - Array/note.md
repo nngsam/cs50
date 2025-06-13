@@ -1,2 +1,2 @@
-- when using a library, it's sometimes not sufficiently only to include the header *** #include <cs50.h> *** at your top of your code which just tell the compiler that functions you gonna use below are exist.
+- when using a library, it's sometimes not sufficiently only to include the header ***#include <cs50.h>*** at your top of your code which just tell the compiler that functions you gonna use below are exist. <br>
   --> You additionally need to tell the computer where to find the 0's and 1's that someone has written to implement a function (inside the lib)
