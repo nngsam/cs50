@@ -9,22 +9,21 @@ int main(void)
     int num = get_int("how many num: \n");
 
     int scores[num];
-    float sum;
     for (int i=0; i < num; i++)
     {
         scores[i] = get_int("score[%i]: \n", i);
     }
-    printf("average: %.1f\n", average(num,scores));
+    printf("average: %.1f\n", average(num, scores));
 }
 
 
 float average(int length, int array[])
-{
-    float sum = 0; 
+{ 
+    int sum = 0; 
     for (int i=0; i < length; i++)
     {
         sum += array[i];
     }
 
-    return sum/length;
+    return sum / (float) length;
 }
