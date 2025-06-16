@@ -2,7 +2,7 @@
   → You additionally need to tell the computer where to find the 0's and 1's that someone has written to implement a function (inside the lib)
 
 
-##### Compiling
+### Compiling
 these steps that computer is going to do for you when compiling the code 
 - preprocessing: take your own source code and preprocess the code top to bottom, left to right
   - preprocessing means it looks for any lines that start with a hash symblol **#...** and _replace_ which is go ahead and copy the contents of the file or lib (mentioned behind the hash symbol)
@@ -14,10 +14,10 @@ these steps that computer is going to do for you when compiling the code
       - Non-Standard Library (aka third parties libraries): Not included by default with the compiler, have to install manually
 
 
-##### Array
+### Array
 
 
-##### String
+### String
 
 | **Khái niệm**                 | **Có null terminator không?** | **Giải thích**                                |
 | ----------------------------- | ----------------------------- | --------------------------------------------- |
@@ -27,6 +27,8 @@ these steps that computer is going to do for you when compiling the code
 | `char s[] = "abc";`           | ✅ Có (`\0`)                   | Chính xác là mảng `{'a', 'b', 'c', '\0'}`     |
 | `char *s = "abc";`            | ✅ Có (`\0`)                   | Trỏ đến string literal `"abc"` đã có `\0`     |
 
-
+- stop sign - null terminator 
+char* s;  // hợp lệ
+char *s;  // cũng hợp lệ
 
 
