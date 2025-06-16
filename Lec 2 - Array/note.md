@@ -27,8 +27,8 @@ these steps that computer is going to do for you when compiling the code
 | `char s[] = "abc";`           | ✅ Có (`\0`)                   | Chính xác là mảng `{'a', 'b', 'c', '\0'}`     |
 | `char *s = "abc";`            | ✅ Có (`\0`)                   | Trỏ đến string literal `"abc"` đã có `\0`     |
 
-- stop sign - null terminator 
-char* s;  // hợp lệ
-char *s;  // cũng hợp lệ
+- stop sign - null terminator <br>
+- char* s;  // hợp lệ 
+  char *s;  // cũng hợp lệ
 
 
