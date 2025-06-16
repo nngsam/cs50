@@ -28,7 +28,7 @@ these steps that computer is going to do for you when compiling the code
 | `char *s = "abc";`            | ✅ Có (`\0`)                   | Trỏ đến string literal `"abc"` đã có `\0`     |
 
 - stop sign - null terminator <br>
-- char* s;  // hợp lệ 
+- char* s;  // hợp lệ <br>
   char *s;  // cũng hợp lệ 
 
 
