@@ -7,7 +7,7 @@ these steps that computer is going to do for you when compiling the code
   - preprocessing means it looks for any lines that start with a hash symblol **#...** and _replace_ which is go ahead and copy the contents of the file or lib (mentioned behind the hash symbol)
 - compiling: to assembly code 
 - assembling: complile assembly code to machine code 0's and 1's
-- linking: we have 0_1 from lib, from cs50, from printf for ex then linking all these parts to represent the program
+- linking: we have 0_1 from lib, from cs50, from printf for ex then linking all these parts to represent the program <br>
     ❓where the library installed: 
       - Standard library: Comes built-in with the compiler (like GCC, Clang, MSVC).
       - Non-Standard Library (aka third parties libraries): Not included by default with the compiler, have to install manually
