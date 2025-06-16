@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
+#include <string.h>
 
 
 typedef char *string;
@@ -7,12 +8,10 @@ typedef char *string;
 int main(void)
 {
     string s = get_string("input: \n");
-    int counter = 0;
-    for (int i = 0; s[i] != '\0'; i++)
+    for (int i = 0, n = strlen(s); i < n; i++)
     {
         printf("%c ", s[i]);
-        counter += 1;
     }
     
-    printf("\nstring length: %i\n", counter);
+    printf("\nstring length: %zu\n", strlen(s));
 }
