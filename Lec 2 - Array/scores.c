@@ -1,11 +1,19 @@
 #include <stdio.h>
+#include <cs50.h>
+
 
 int main(void)
 {
-    int scores[3];
-    for (int i=0; i<3; i++)
+    int num;
+    num = get_int("how many num: \n");
+
+    int scores[num];
+    float sum;
+    for (int i=0; i < num; i++)
     {
-        printf("i: %i\n", scores[i]);
+        scores[i] = get_int("score[%i]: \n", i);
+        sum += scores[i];
     }
-    printf("average: %f\n", (scores[0] + scores[1] + scores[2]) / 3.0);
+    printf("sum = %.1f\n", sum);
+    printf("average: %.1f\n", sum/num);
 }
