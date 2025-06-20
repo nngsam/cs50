@@ -2,6 +2,7 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,9 +33,20 @@ int main(void)
     float S = (float) 100 / count_word(text) * count_sentence(text);
     printf("S: %.2f\n", S);
 
-    index = 0.0588 * L - 0.296 * S - 15.8;
+    index = round((float) 0.0588 * L - 0.296 * S - 15.8);
 
-    printf("Grade: %i\n", index);
+    if (index < 1)
+    {
+        printf("Before Grade 1\n");
+    }
+    else if (index >= 16)
+    {
+        printf("Grade 16+\n");
+    }
+    else 
+    {
+        printf("Grade: %i\n", index);
+    }
 }
 
 // helper functions
@@ -47,25 +59,13 @@ int sentence_to_grade(char* sentence)
 int count_word(char* s)
 {
     int word = 0;
-    
     for (int i = 0, n = strlen(s); i < n; i++)
     {
-        if (isspace(s[i]))
+        if (!isspace(s[i]) && (i == 0 || isspace(s[i - 1])))
         {
-            word += 1;
+            word++;
         }
     }
-    // if starter is space
-    if (isspace(s[0]))
-    {
-        word -= 1;
-    }
-    // if end is space
-    if (isspace(s[strlen(s) - 1]))
-    {
-        word -= 1;
-    }
-
     return word;
 }
 
