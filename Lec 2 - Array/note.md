@@ -30,5 +30,6 @@ these steps that computer is going to do for you when compiling the code
 
 - stop sign - null terminator <br>
 - char* s;  // hợp lệ <br>
-  char *s;  // cũng hợp lệ
+  char *s;  // cũng hợp lệ 
+
 
