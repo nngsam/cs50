@@ -3,6 +3,7 @@
 
 
 ### Compiling
+
 these steps that computer is going to do for you when compiling the code 
 - preprocessing: take your own source code and preprocess the code top to bottom, left to right
   - preprocessing means it looks for any lines that start with a hash symblol **#...** and _replace_ which is go ahead and copy the contents of the file or lib (mentioned behind the hash symbol)
@@ -30,6 +31,5 @@ these steps that computer is going to do for you when compiling the code
 - stop sign - null terminator <br>
 - char* s;  // hợp lệ <br>
   char *s;  // cũng hợp lệ 
-
 
 
