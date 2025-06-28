@@ -9,7 +9,7 @@ int main(void)
 
     for (int i=0; i<7; i++)
     {
-        if (strcmp(names[i], "ron")) 
+        if (strcmp(names[i], "Ron") == 0) 
         {
             printf("found\n");
             return 0;
