@@ -42,16 +42,16 @@ void print_array(int arr[], int N)
 }
 
 // running time and comparing
-void search_and_report(const char *label, int (*search_func)(int[], int, int), int arr[], int N, int target)
+void search_and_report(const char *search_type, int (*search_func)(int[], int, int), int arr[], int N, int target)
 {
     clock_t start = clock();
     int result = search_func(arr, N, target);
     clock_t end = clock();
 
-    double elapsed_time = (double)(end - start) / CLOCKS_PER_SEC;
+    double elapsed_time = (double)(end - start) / CLOCKS_PER_SEC;  // actual time taken
 
     // search result
-    printf("[%s] ", label);
+    printf("[%s] \n", search_type);
     if (result == -1)
     {
         printf("Not found %d in array ", target);
@@ -64,7 +64,7 @@ void search_and_report(const char *label, int (*search_func)(int[], int, int), i
     printf("\n");
 
     // time
-    printf("Time taken by %s: %.6f seconds\n\n", label, elapsed_time);
+    printf("Time taken by %s: %.6f seconds\n\n", search_type, elapsed_time);
 }
 
 int main(void)
