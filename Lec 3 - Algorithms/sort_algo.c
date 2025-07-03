@@ -57,11 +57,11 @@ void merge_sort(int arr[], int N)
 }
 
 
-void copy_array(int src[], int dest[], int N)
+void copy_array(int unsorted[], int sorted[], int N)
 {
     for (int i = 0; i < N; i++)
     {
-        dest[i] = src[i];
+        sorted[i] = unsorted[i];
     }
 }
 
@@ -77,13 +77,13 @@ void print_array(int arr[], int N)
 }
 
 // running time and comparing
-void sort_and_report(const char *sort_type, void(*sort_func)(int[], int), int arr[], int N)
+void sort_and_report(const char *sort_type, void(*sort_func)(int[], int), int unsorted[], int N)
 {
-    int arr_copy[N];
-    copy_array(arr, arr_copy, N);
+    int arr_dest[N];
+    copy_array(unsorted, arr_dest, N);
     
     clock_t start = clock();
-    sort_func(arr_copy, N);
+    sort_func(arr_dest, N);
     clock_t end = clock();
 
     double elapsed_time = (double)(end - start) / CLOCKS_PER_SEC;  // actual time taken
@@ -91,7 +91,7 @@ void sort_and_report(const char *sort_type, void(*sort_func)(int[], int), int ar
     // search result
     printf("[%s] ==> ", sort_type);
     printf("sorted array: ");
-    print_array(arr_copy, N);
+    print_array(arr_dest, N);
     printf("\n");
 
     // time
