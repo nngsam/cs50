@@ -8,11 +8,6 @@
 
 #include <stdio.h>
 #include <cs50.h>
-#include <time.h>
-
-
-#include <stdio.h>
-#include <cs50.h>
 
 int main(void)
 {
@@ -26,20 +21,15 @@ int main(void)
     }
 
     printf("%i", n);
-
+    int counter = 0;
     while (n != 1)
     {
-        if (n % 2 == 0)
-        {
-            n = n / 2;
-        }
-        else 
-        {
-            n = 3 * n + 1;
-        }
+        n = ( n % 2 == 0 ) ? n /2 : 3*n+1;
+        counter ++;
         printf(" -> %i", n);
     }
 
     printf("\n");
+    printf("Step taken: %i \n", counter);
     return 0;
 }
