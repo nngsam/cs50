@@ -15,7 +15,6 @@ int collatz_step(int n);
 int main(void)
 {
     int n = get_int("Your number: ");
-
     if (n < 1)
     {
         printf("Error: n must be a positive integer greater than 0.\n");
@@ -24,7 +23,7 @@ int main(void)
     }
 
     int counter = collatz_step(n);
-    
+
     // while (n != 1)
     // {
     //     n = ( n % 2 == 0 ) ? n /2 : 3*n+1;
@@ -42,16 +41,12 @@ int collatz_step(int n)
 {
     printf ("%i", n);
     if (n==1)
-    {
         return 0;
-    }
+
     printf (" -> ");
-    if (n % 2 == 0)
-    {
-        return 1 + collatz_step(n/2);
-    }
-    else
-        return 1 + collatz_step(3*n + 1);
+    n = (n % 2 == 0) ? n / 2 : 3 * n +1;
+    return 1 + collatz_step(n);
+
 }
 
 // in case just see the collatz process 
@@ -61,12 +56,10 @@ void print_collatz(int n)
     if (n==1)
     {
         printf ("\n");
+        return;
     }
+
     printf (" -> ");
-    if (n % 2 == 0)
-    {
-        print_collatz(n/2);
-    }
-    else
-        print_collatz(3*n + 1);
+    n = (n % 2 == 0) ? n / 2 : 3 * n +1;
+    print_collatz(n);
 }
