@@ -33,12 +33,36 @@ void bubble_sort(int arr[], int N)
 // Selection sort
 void selection_sort(int arr[], int N)
 {
-
+    for (int i = 0; i < N; i++)
+    {
+        int min = i;
+        for (int j = i+1; j < N; j++)
+        {
+            if (arr[j] < arr[min])
+            {
+                min = j;
+            }
+        }
+        if (min !=  i)
+        {
+            swap(arr, i, min);
+        }
+    }
 }
+
 // Merge sort
 void merge_sort(int arr[], int N)
 {
+    return;
+}
 
+
+void copy_array(int unsorted[], int sorted[], int N)
+{
+    for (int i = 0; i < N; i++)
+    {
+        sorted[i] = unsorted[i];
+    }
 }
 
 void print_array(int arr[], int N)
@@ -52,12 +76,14 @@ void print_array(int arr[], int N)
     printf("]");
 }
 
-
 // running time and comparing
-void sort_and_report(const char *sort_type, void(*sort_func)(int[], int), int arr[], int N)
+void sort_and_report(const char *sort_type, void(*sort_func)(int[], int), int unsorted[], int N)
 {
+    int arr_dest[N];
+    copy_array(unsorted, arr_dest, N);
+    
     clock_t start = clock();
-    sort_func(arr, N);
+    sort_func(arr_dest, N);
     clock_t end = clock();
 
     double elapsed_time = (double)(end - start) / CLOCKS_PER_SEC;  // actual time taken
@@ -65,7 +91,7 @@ void sort_and_report(const char *sort_type, void(*sort_func)(int[], int), int ar
     // search result
     printf("[%s] ==> ", sort_type);
     printf("sorted array: ");
-    print_array(arr, N);
+    print_array(arr_dest, N);
     printf("\n");
 
     // time
@@ -75,9 +101,12 @@ void sort_and_report(const char *sort_type, void(*sort_func)(int[], int), int ar
 
 int main(void)
 {
-    int arr[] = {10, 3, 2, 11, 1, 10};
+    int arr[] = {10, 3, 2, 11, 1, 10, 1,4,5,2,5,21};
     int N = sizeof(arr) / sizeof(arr[0]);
 
     sort_and_report("Bubble Sort", bubble_sort, arr, N);
+    sort_and_report("Selection Sort", selection_sort, arr, N);
+    sort_and_report("Merge Sort", merge_sort, arr, N);
+
     return 0;
 }
