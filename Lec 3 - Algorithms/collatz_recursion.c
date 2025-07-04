@@ -9,6 +9,9 @@
 #include <stdio.h>
 #include <cs50.h>
 
+
+int collatz_step(int n);
+
 int main(void)
 {
     int n = get_int("Your number: ");
@@ -20,16 +23,50 @@ int main(void)
         return 1;
     }
 
-    printf("%i", n);
-    int counter = 0;
-    while (n != 1)
-    {
-        n = ( n % 2 == 0 ) ? n /2 : 3*n+1;
-        counter ++;
-        printf(" -> %i", n);
-    }
+    int counter = collatz_step(n);
+    
+    // while (n != 1)
+    // {
+    //     n = ( n % 2 == 0 ) ? n /2 : 3*n+1;
+    //     counter ++;
+    //     printf(" -> %i", n);
+    // }
 
     printf("\n");
     printf("Step taken: %i \n", counter);
     return 0;
+}
+
+
+int collatz_step(int n)
+{
+    printf ("%i", n);
+    if (n==1)
+    {
+        return 0;
+    }
+    printf (" -> ");
+    if (n % 2 == 0)
+    {
+        return 1 + collatz_step(n/2);
+    }
+    else
+        return 1 + collatz_step(3*n + 1);
+}
+
+// in case just see the collatz process 
+void print_collatz(int n)
+{
+    printf ("%i", n);
+    if (n==1)
+    {
+        printf ("\n");
+    }
+    printf (" -> ");
+    if (n % 2 == 0)
+    {
+        print_collatz(n/2);
+    }
+    else
+        print_collatz(3*n + 1);
 }
