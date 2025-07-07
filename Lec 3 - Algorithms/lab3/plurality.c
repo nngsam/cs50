@@ -26,7 +26,7 @@ void print_winner(void);
 int main(int argc, string argv[])
 {
     // Check for invalid usage
-    if (argc < 2)
+    if (argc < 2)  // argc bắt buộc phải lớn hơn hoặc bằng 2, bằng 2 là trường hợp chỉ có một candidat và candidate đó dĩ nhiên mặc định là winner!?
     {
         printf("Usage: plurality [candidate ...]\n");
         return 1;
@@ -64,26 +64,10 @@ int main(int argc, string argv[])
 }
 
 // Update vote totals given a new vote
-int binary_search(int arr[], int N, int target)
-{   
-    int left = 0, right = N - 1;
-    while (left <= right)
-    {
-        int mid = (left + right) / 2;
-        if (arr[mid] == target)
-            return mid;
-        else if (arr[mid] < target)
-            left = mid + 1;
-        else
-            right = mid - 1;
-    }
-    return -1;
-}
-
 bool vote(string name)
 {
     // TODO
-    for (int i=0; i<candidate_count; i++)
+    for (int i=0; i < candidate_count; i++)
     {
         if (strcmp(candidates[i].name, name) == 0)
         {
@@ -93,7 +77,6 @@ bool vote(string name)
     }
     return false;
 }
-
 
 
 // Print the winner (or winners) of the election
