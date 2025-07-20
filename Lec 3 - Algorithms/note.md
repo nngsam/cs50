@@ -21,9 +21,9 @@ chương trình tìm và in ra ứng cử viên chiến thắng theo cơ chế b
 - Về dimentional array *preferences[i][j]*
   Giả sử có 3 ứng viên: "Alice" (index 0), "Bob" (index 1), "Charlie" (index 2)
 Voter số 0 chọn theo thứ tự: Bob > Charlie > Alice → thì:
-    - preferences[0][0] = 1;  // Bob là lựa chọn 1 (index 1)
-    - preferences[0][1] = 2;  // Charlie là lựa chọn 2 (index 2)
-    - preferences[0][2] = 0;  // Alice là lựa chọn 3 (index 0)
+    - preferences[0][0] = 1 == Bob;  // Bob là lựa chọn 1 (index 1)
+    - preferences[0][1] = 2 == Charlie;  // Charlie là lựa chọn 2 (index 2)
+    - preferences[0][2] = 0 == Alice;  // Alice là lựa chọn 3 (index 0)
 
 
 - Qúa trình: 
@@ -32,3 +32,16 @@ Voter số 0 chọn theo thứ tự: Bob > Charlie > Alice → thì:
 - Trong đó:
   - tabulate(): nhìn vào voter's preferences để tính toán vote_totals, bằng cách nhìn vào từng lựa chọn đầu tiên của các cử tri (những ứng viên chưa từng bị loại)
   - print_winner(): print out người thắng (if there is one) bằng cách nhìn vào voter's top choice. Nhưng nếu chưa, hàm sẽ quyết định ai là người cần xóa trước tiên thông qua find_min(). Nếu kết cục nếu mọi ứng cử viên đề bằng nhau (dùng hàm is_tie()) --> declared a tie; nếu không, ứng cử viên xếp cuối sẽ bị xóa đi thông qua hàm eliminate()
+
+
+
+##### Tideman
+Ta đã biết về cách bầu chọn theo số đông (plurality), thuật toán đơn giản là mỗi cử tri sẽ được bầu chọn cho một người và ai nhiều phiếu bình chọn nhất sẽ là người chiến thắng. Tuy nhiên cách này có bất lợi: giải sử có 5 cử tri bầu cho A B C với số phiếu lần lượt là 2 - 2 - 1 -> không thể quyết định ai là người thắng cuộc giữa A và B khi họ cùng số phiếu bầu là 2 phiếu
+<br>
+Bên cạnh Runoff được giới thiệu ở bên trên, thì có một thuật toán tuân theo ranked-choice system là Tideman
+
+- Trong tideman, người chiến thắng gọi là "Condorcet winner": ứng cử viên dành được nhiều phiếu đối đầu head-to-head (khi ta đặt chỉ 2 ứng viên lên bàn đối đầu khi thực hiện bất cứ phép so sánh nào để đưa ra quyết định) hơn những đối thủ còn lại. Ví dụ A > B && A > C --> A thắng. Đây là một thuật toán ranked-pairs (điều kiện là nếu người chiến thắng duy nhất tồn tại do cũng có trường hợp không có condorcet winner nào).
+
+- cycle: how to avoid closed cycle which lead to no winner?
+    - Viễn cảnh: giả sử có n candidates thì sẽ có n-1 arrow có thể vé (n-1 pairs head-to-head)
+    - detect if potential of a cycle closed --> if potential: consider the marginal size of each pair, the smallest marginal won't likely drawn arrow OR that arrow is locked, the graph is complete
